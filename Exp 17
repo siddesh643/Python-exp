@@ -1,0 +1,29 @@
+class Product:
+    def __init__(self, name, price):
+        self.name = name    # Name of the product
+        self.price = price  # Price of the product
+class ShoppingCart:
+    def __init__(self):
+        self.items = []  # List to store products added to cart
+    def add_item(self, product):
+        self.items.append(product)
+        print(f"{product.name} added to cart")
+    def show_cart(self):
+        if not self.items:
+            print("Cart is empty")
+            return
+
+        total = 0
+        print("\nCart Items:")
+        for item in self.items:
+            print(f"{item.name} - ₹{item.price}")
+            total += item.price
+        print(f"Total Price = ₹{total}")
+# Create some products
+p1 = Product("Laptop", 50000)
+p2 = Product("Phone", 20000)
+p3 = Product("Headphones", 2000)
+cart = ShoppingCart()
+cart.add_item(p1)  # Add Laptop
+cart.add_item(p3)  # Add Headphones
+cart.show_cart()
